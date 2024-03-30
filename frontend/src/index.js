@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter, createRoutesFromElements,
   Route, RouterProvider
-} from 'react-router-dom';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+} from 'react-router-dom';// import 'bootstrap/dist/css/bootstrap.min.css';
+import { Provider } from 'react-redux';
 import './assets/styles/bootstrap.custom.css';
 import './assets/styles/index.css';
 import App from './App';
-import { Provider } from 'react-redux';
 import store from './store';
 import reportWebVitals from './reportWebVitals';
 import HomeScreen from './screens/HomeScreen';
