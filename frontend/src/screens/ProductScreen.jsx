@@ -3,17 +3,20 @@ import { useParams, Link } from 'react-router-dom';
 import Rating from '../components/Rating';
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap';
 import { useGetProductDetailsQuery } from '../slices/productsApiSlice';
+import Loader from '../components/Loader';
+import Message from '../components/Message';
 
 function ProductScreen() {
     const { id: productId } = useParams();
     const { data: product, isLoading, error } = useGetProductDetailsQuery(productId);
 
     if (isLoading) {
-        return <h2>Loading...</h2>;
+        return <Loader />;
     }
 
     if (error) {
-        return <div>{error?.data?.message || error.data}</div>;
+        return <Message variant='danger'>
+        {error?.data?.message || error.data}  </Message>;
     }
 
     return (
